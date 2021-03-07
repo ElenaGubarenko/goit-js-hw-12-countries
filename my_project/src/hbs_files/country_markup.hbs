@@ -1,0 +1,15 @@
+<h1 class="title-of-country">{{name}}</h1>
+<div class="image-and-info">
+  <div>
+    <p class="subtitle">Capital: {{capital}}</p>
+    <p class="subtitle">Population: {{population}}</p>
+    <p class="subtitle">Languages:</p>
+    <ul>
+      {{#each languages}}
+      <li class="subtitle">{{this.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <img class="flag-image" src={{flag}} alt={{name}} />
+</div>
