@@ -11,7 +11,6 @@ const inputRef = document.querySelector('.search-input');
 let inputValue = '';
 
 const answerMoreThenTen = answers => {
-  console.log('no');
   PNotify.notice({
     title: 'NEED MORE TEXT',
     icon: false,
@@ -46,7 +45,6 @@ const findCountry = () => {
       return response.json();
     })
     .then(answers => {
-      console.log(answers);
       if (answers.length > 10) {
         answerMoreThenTen(answers);
       } else if (answers.length >= 2 && answers.length <= 10) {
@@ -54,6 +52,9 @@ const findCountry = () => {
       } else if (answers.length === 1) {
         answerIsOne(answers);
       }
+    })
+    .catch(error => {
+      answerMoreThenTen(error);
     });
 };
 
